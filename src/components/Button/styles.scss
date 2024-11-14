@@ -1,0 +1,136 @@
+.jt-button {
+  --jt-button-font-weight: var(--jt-font-weight-primary);
+  --jt-button-border-color: var(--jt-border-color);
+  --jt-button-bg-color: var(--jt-fill-color-blank);
+  --jt-button-text-color: var(--jt-text-color-regular);
+  --jt-button-disabled-text-color: var(--jt-disabled-text-color);
+  --jt-button-disabled-bg-color: var(--jt-fill-color-blank);
+  --jt-button-disabled-border-color: var(--jt-border-color-light);
+  --jt-button-hover-text-color: var(--jt-color-primary);
+  --jt-button-hover-bg-color: var(--jt-color-primary-light-9);
+  --jt-button-hover-border-color: var(--jt-color-primary-light-7);
+  --jt-button-active-text-color: var(--jt-button-hover-text-color);
+  --jt-button-active-border-color: var(--jt-color-primary);
+  --jt-button-active-bg-color: var(--jt-button-hover-bg-color);
+  --jt-button-outline-color: var(--jt-color-primary-light-5);
+  --jt-button-active-color: var(--jt-text-color-primary);
+}
+
+.jt-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--jt-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: .1s;
+  font-weight: var(--jt-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--jt-button-bg-color);
+  border: var(--jt-border);
+  border-color: var(--jt-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--jt-font-size-base);
+  border-radius: var(--jt-border-radius-base);
+
+  &+& {
+    margin-left: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--jt-button-hover-text-color);
+    border-color: var(--jt-button-hover-border-color);
+    background-color: var(--jt-button-hover-bg-color);
+    outline: none;
+  }
+
+  &:active {
+    color: var(--jt-button-active-text-color);
+    border-color: var(--jt-button-active-border-color);
+    background-color: var(--jt-button-active-bg-color);
+    outline: none;
+  }
+
+  &.is-plain {
+    --jt-button-hover-text-color: var(--jt-color-primary);
+    --jt-button-hover-bg-color: var(--jt-fill-color-blank);
+    --jt-button-hover-border-color: var(--jt-color-primary);
+  }
+
+  /*round*/
+  &.is-round {
+    border-radius: var(--jt-border-radius-round);
+  }
+
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+
+  /*disabled*/
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--jt-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--jt-button-disabled-bg-color);
+    border-color: var(--jt-button-disabled-border-color);
+  }
+}
+
+@each $val in primary, success, warning, info, danger {
+  .jt-button--#{$val} {
+    --jt-button-text-color: var(--jt-color-white);
+    --jt-button-bg-color: var(--jt-color-#{$val});
+    --jt-button-border-color: var(--jt-color-#{$val});
+    --jt-button-outline-color: var(--jt-color-#{$val}-light-5);
+    --jt-button-active-color: var(--jt-color-#{$val}-dark-2);
+    --jt-button-hover-text-color: var(--jt-color-white);
+    --jt-button-hover-bg-color: var(--jt-color-#{$val}-light-3);
+    --jt-button-hover-border-color: var(--jt-color-#{$val}-light-3);
+    --jt-button-active-bg-color: var(--jt-color-#{$val}-dark-2);
+    --jt-button-active-border-color: var(--jt-color-#{$val}-dark-2);
+    --jt-button-disabled-text-color: var(--jt-color-white);
+    --jt-button-disabled-bg-color: var(--jt-color-#{$val}-light-5);
+    --jt-button-disabled-border-color: var(--jt-color-#{$val}-light-5);
+  }
+
+  .jt-button--#{$val}.is-plain {
+    --jt-button-text-color: var(--jt-color-#{$val});
+    --jt-button-bg-color: var(--jt-color-#{$val}-light-9);
+    --jt-button-border-color: var(--jt-color-#{$val}-light-5);
+    --jt-button-hover-text-color: var(--jt-color-white);
+    --jt-button-hover-bg-color: var(--jt-color-#{$val});
+    --jt-button-hover-border-color: var(--jt-color-#{$val});
+    --jt-button-active-text-color: var(--jt-color-white);
+  }
+}
+
+.jt-button--large {
+  --jt-button-size: 40px;
+  height: var(--jt-button-size);
+  padding: 12px 19px;
+  font-size: var(--jt-font-size-base);
+  border-radius: var(--jt-border-radius-base);
+}
+
+.jt-button--small {
+  --jt-button-size: 24px;
+  height: var(--jt-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--jt-border-radius-base) - 1px);
+}

@@ -1,0 +1,80 @@
+@use 'sass:color';
+
+:root {
+  /* colors */
+  --jt-color-white: #ffffff;
+  --jt-color-black: #000000;
+  $colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399) !default;
+
+  @each $val, $color in $colors {
+    --jt-color-#{$val}: #{$color};
+
+    @for $i from 1 through 4 {
+      $index: $i * 2 + 1;
+      --jt-color-#{$val}-light-#{$index}: #{color.mix(#fff, $color, $index * 7%)};
+    }
+
+    --jt-color-#{$val}-light-8: #{color.mix(#fff, $color, 8 * 7%)};
+    --jt-color-#{$val}-dark-2: #{color.mix(#000, $color, 2 * 7%)};
+  }
+
+  --jt-bg-color: #ffffff;
+  --jt-bg-color-page: #f2f3f5;
+  --jt-bg-color-overlay: #ffffff;
+  --jt-text-color-primary: #303133;
+  --jt-text-color-regular: #606266;
+  --jt-text-color-secondary: #909399;
+  --jt-text-color-placeholder: #a8abb2;
+  --jt-text-color-disabled: #c0c4cc;
+  --jt-border-color: #dcdfe6;
+  --jt-border-color-light: #e4e7ed;
+  --jt-border-color-lighter: #ebeef5;
+  --jt-border-color-extra-light: #f2f6fc;
+  --jt-border-color-dark: #d4d7de;
+  --jt-border-color-darker: #cdd0d6;
+  --jt-fill-color: #f0f2f5;
+  --jt-fill-color-light: #f5f7fa;
+  --jt-fill-color-lighter: #fafafa;
+  --jt-fill-color-extra-light: #fafcff;
+  --jt-fill-color-dark: #ebedf0;
+  --jt-fill-color-darker: #e6e8eb;
+  --jt-fill-color-blank: #ffffff;
+
+  /* border */
+  --jt-border-width: 1px;
+  --jt-border-style: solid;
+  --jt-border-color-hover: var(--jt-text-color-disabled
+);
+--jt-border: var(--jt-border-width) var(--jt-border-style) var(--jt-border-color);
+--jt-border-radius-base: 4px;
+--jt-border-radius-small: 2px;
+--jt-border-radius-round: 20px;
+--jt-border-radius-circle: 100%;
+
+/*font*/
+--jt-font-size-extra-large: 20px;
+--jt-font-size-large: 18px;
+--jt-font-size-medium: 16px;
+--jt-font-size-base: 14px;
+--jt-font-size-small: 13px;
+--jt-font-size-extra-small: 12px;
+--jt-font-family: "Helvetica Neue",
+Helvetica,
+"PingFang SC",
+"Hiragino Sans GB",
+"Microsoft YaHei",
+"\5fae\8f6f\96c5\9ed1",
+Arial,
+sans-serif;
+--jt-font-weight-primary: 500;
+
+/*disabled*/
+--jt-disabled-bg-color: var(--jt-fill-color-light);
+--jt-disabled-text-color: var(--jt-text-color-placeholder);
+--jt-disabled-border-color: var(--jt-border-color-light);
+}
