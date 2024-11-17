@@ -1,0 +1,7 @@
+{
+    "include": ["src/**/*.test.*"],
+    "compilerOptions": {
+      "types": ["vitest/globals","./vitest-test"]
+    }
+  }
+  
