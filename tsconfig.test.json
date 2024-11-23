@@ -1,7 +1,8 @@
 {
-    "include": ["src/**/*.test.*","src/**/*.ts"],
+    "include": ["src/**/*.test.*","src/**/*.ts", "src/test/TodoApptest.tsx"],
     "compilerOptions": {
-      "types": ["vitest/globals","./vitest-test"]
+      "types": ["vitest/globals","./vitest-test"],
+      "jsx": "react",
     }
   }
   
