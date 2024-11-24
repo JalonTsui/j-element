@@ -1,8 +1,14 @@
 {
-    "include": ["src/**/*.test.*","src/**/*.ts", "src/test/TodoApptest.tsx"],
-    "compilerOptions": {
-      "types": ["vitest/globals","./vitest-test"],
-      "jsx": "react",
-    }
+  "include": [
+    "src/**/*.test.*",
+    "src/**/*.ts"
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true, // 允许默认导出 export default
+    "types": [
+      "vitest/globals",
+      "./vitest-test"
+    ],
+    "jsx": "react",
   }
-  
+}

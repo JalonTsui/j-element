@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="tsx">
 import { ref } from 'vue';
 import type { ButtonProps } from './types';
 const _ref = ref<HTMLButtonElement | null>(null);
