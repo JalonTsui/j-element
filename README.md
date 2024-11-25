@@ -7,3 +7,6 @@ fontawesome
 pnpm i -S @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
 pnpm i -S @fortawesome/vue-fontawesome@latest-3
 pnpm i @fortawesome/fontawesome-svg-core -S
+
+# 学习的源码地址
+https://git.imooc.com/coding-693/v-element
