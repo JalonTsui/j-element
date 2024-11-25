@@ -14,6 +14,7 @@ const activeList = ref(['1','2','3']);
 </script>
 <template>
   <div>
+    <font-awesome-icon icon="fa-solid fa-user-secret" />
     <div>
       <Button
         type="primary"
