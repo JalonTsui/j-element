@@ -2,6 +2,7 @@
 import type {ItemType} from "./types";
 import {collapseInjectKey} from "../types";
 import {computed,inject} from "vue";
+import Icon from "../../Icon/Icon.vue";
 defineOptions({name:'JtCollapseItem'});
 const props = withDefaults(defineProps<ItemType>(),{
   title:'default',
@@ -55,6 +56,10 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
       <slot name="title">
         {{ title }}
       </slot>
+      <Icon
+        icon="angle-up"
+        class="header-angle"
+      />
     </div>
     <Transition
       name="slice"

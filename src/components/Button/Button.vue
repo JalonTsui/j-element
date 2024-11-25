@@ -1,6 +1,7 @@
 <script setup lang="tsx">
 import { ref } from 'vue';
 import type { ButtonProps } from './types';
+import Icon from "../Icon/Icon.vue";
 const _ref = ref<HTMLButtonElement | null>(null);
 defineOptions({ name: 'JtButton' });
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -21,11 +22,21 @@ defineExpose({
       'is-round': round,
       'is-disabled': disabled,
       'is-circle': circle,
+      'is-loading': loading
     }"
     :type="props.nativeType"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :autofocus="autofocus"
   >
+    <Icon
+      v-if="loading"
+      icon="spinner"
+      spin
+    />
+    <Icon
+      v-if="icon"
+      :icon="icon"
+    />
     <span>
       <slot />
     </span>

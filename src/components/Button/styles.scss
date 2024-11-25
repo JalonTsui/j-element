@@ -89,6 +89,10 @@
     background-color: var(--jt-button-disabled-bg-color);
     border-color: var(--jt-button-disabled-border-color);
   }
+
+  [class*=jt-icon]+span {
+    margin-left: 7px;
+  }
 }
 
 @each $val in primary, success, warning, info, danger {

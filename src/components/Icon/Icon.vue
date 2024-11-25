@@ -17,7 +17,9 @@ const customStyle = computed(()=>props.color ? {color:props.color} : {});
       [`jt-icon--${props.type}`]: props.type  
     }"
     :style="customStyle"
+    v-bind="$attrs"
   >
+    <!-- $attrs当禁用透传的时候，又需要把一些非props的属性传下来 -->
     <FontAwesomeIcon
       v-bind="$props"
     />

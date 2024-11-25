@@ -36,6 +36,16 @@
 
     &.is-active {
         border-bottom-color: transparent;
+
+        // todo: 读懂这个动画的css
+        .header-angle {
+            transform: rotate(180deg);
+        }
+    }
+
+    .header-angle {
+        transition: transform var(--vk-transition-duration);
+        margin-right: 10px;
     }
 }
 
