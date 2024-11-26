@@ -2,16 +2,16 @@
 import Button from '@/components/Button/Button.vue';
 import type { ButtonInstance } from '@/components/Button/types';
 import { onMounted, ref } from 'vue';
-import Collapse from "@/components/Collapse/Collapse.vue";
-import CollapseItem from "@/components/Collapse/CollapseItem/CollapseItem.vue";
-import Icon from "@/components/Icon/Icon.vue";
+import Collapse from '@/components/Collapse/Collapse.vue';
+import CollapseItem from '@/components/Collapse/CollapseItem/CollapseItem.vue';
+import Icon from '@/components/Icon/Icon.vue';
 const _ref = ref<ButtonInstance | null>(null);
 onMounted(() => {
   if (_ref.value) {
     console.log(_ref.value.ref);
   }
 });
-const activeList = ref(['1','2','3']);
+const activeList = ref(['1', '2', '3']);
 </script>
 <template>
   <div>

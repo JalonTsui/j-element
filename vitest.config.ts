@@ -3,10 +3,10 @@ import viteConfig from './vite.config';
 
 export default mergeConfig(viteConfig, defineConfig({
   test: {
-    globals:true,
+    globals: true,
     // alias:{
     //   "$test":resolve(__dirname,"./mocks/$test.ts")
     // }
-    environment:"jsdom"
+    environment: 'jsdom',
   },
 }));
