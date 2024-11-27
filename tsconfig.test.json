@@ -9,6 +9,7 @@
       "vitest/globals",
       "./vitest-test"
     ],
-    "jsx": "react",
+    "jsx": "preserve",
+    "jsxImportSource": "vue", // 给jsx语法下导入的vue组件对应的jsx类型，可以理解为一个vue->jsx的processor,报错ts2786
   }
 }

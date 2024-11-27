@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import type {ItemType} from "./types";
-import {collapseInjectKey} from "../types";
-import {computed,inject} from "vue";
-import Icon from "../../Icon/Icon.vue";
-defineOptions({name:'JtCollapseItem'});
-const props = withDefaults(defineProps<ItemType>(),{
-  title:'default',
-  disable:false
+import type { ItemType } from './types';
+import { collapseInjectKey } from '../types';
+import { computed, inject } from 'vue';
+import Icon from '../../Icon/Icon.vue';
+defineOptions({ name: 'JtCollapseItem' });
+const props = withDefaults(defineProps<ItemType>(), {
+  title: 'default',
+  disable: false,
 });
 const collapseInject = inject(collapseInjectKey);
-const isActive = computed(()=>collapseInject?.activeList.value.includes(props.name));
-function handleClick(){
-  if(props.disable)return;
+const isActive = computed(() => collapseInject?.activeList.value.includes(props.name));
+function handleClick() {
+  if (props.disable) return;
   collapseInject?.changeActiveList(props.name);
 }
 const transitionEvents: Record<string, (el: HTMLElement) => void> = {
@@ -27,7 +27,7 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
     el.style.height = '';
     el.style.overflow = '';
   },
-  beforeLeave(el) { 
+  beforeLeave(el) {
     el.style.height = `${el.scrollHeight}px`;
     el.style.overflow = 'hidden';
   },
@@ -38,7 +38,7 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
   afterLeave(el) {
     el.style.height = '';
     el.style.overflow = '';
-  }
+  },
 
 };
 </script>
