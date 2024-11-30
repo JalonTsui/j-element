@@ -13,11 +13,20 @@ onMounted(() => {
   }
 });
 const activeList = ref(['1', '2', '3']);
+const toolTipModel = ref<'click' | 'hover'>('click');
+function btnFun1() {
+  if (toolTipModel.value === 'click') {
+    toolTipModel.value = 'hover';
+  }
+  else {
+    toolTipModel.value = 'click';
+  }
+}
 </script>
 <template>
   <div>
     <div>
-      <ToolTip>
+      <ToolTip :trigger="toolTipModel">
         <Button>test</Button>
         <template #content>
           test content
@@ -33,8 +42,8 @@ const activeList = ref(['1', '2', '3']);
     <div>
       <Button
         type="primary"
-        disabled
         circle
+        @click="btnFun1"
       >
         Button
       </Button>
