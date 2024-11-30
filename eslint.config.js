@@ -27,9 +27,9 @@ export default [
   ...pluginVue.configs["flat/recommended"],
   ...vueTsEslintConfig(),
   ...compat.config({
-    parserOptions:{
-      ecmaFeatures:{
-        jsx:true
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true
       }
     }
   }),
@@ -41,7 +41,8 @@ export default [
       "vue/multi-word-component-names": 0, // 取消vue组件命名要求单词之间必须使用驼峰命名法
       indent: ["error", 2], // 2 表示使用 2 个空格
       "@typescript-eslint/no-explicit-any": 1,
-      "vue/block-lang":0
+      "vue/block-lang": 0,
+      "@typescript-eslint/no-empty-object-type": 1, // 自定义接口不能为空
     }
   },
 ];
