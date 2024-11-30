@@ -44,18 +44,10 @@
     margin-left: 12px;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: var(--jt-button-hover-text-color);
     border-color: var(--jt-button-hover-border-color);
     background-color: var(--jt-button-hover-bg-color);
-    outline: none;
-  }
-
-  &:active {
-    color: var(--jt-button-active-text-color);
-    border-color: var(--jt-button-active-border-color);
-    background-color: var(--jt-button-active-bg-color);
     outline: none;
   }
 
@@ -88,6 +80,13 @@
     background-image: none;
     background-color: var(--jt-button-disabled-bg-color);
     border-color: var(--jt-button-disabled-border-color);
+  }
+
+  &:active {
+    color: var(--jt-button-active-text-color);
+    border-color: var(--jt-button-active-border-color);
+    background-color: var(--jt-button-active-bg-color);
+    outline: none;
   }
 
   [class*=jt-icon]+span {

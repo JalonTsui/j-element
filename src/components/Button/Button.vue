@@ -1,14 +1,14 @@
 <script setup lang="tsx">
 import { ref } from 'vue';
 import type { ButtonProps } from './types';
-import Icon from "../Icon/Icon.vue";
+import Icon from '../Icon/Icon.vue';
 const _ref = ref<HTMLButtonElement | null>(null);
 defineOptions({ name: 'JtButton' });
 const props = withDefaults(defineProps<ButtonProps>(), {
-  nativeType: 'button'
+  nativeType: 'button',
 });
 defineExpose({
-  ref: _ref
+  ref: _ref,
 });
 </script>
 <template>

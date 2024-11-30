@@ -5,6 +5,7 @@ import { onMounted, ref } from 'vue';
 import Collapse from '@/components/Collapse/Collapse.vue';
 import CollapseItem from '@/components/Collapse/CollapseItem/CollapseItem.vue';
 import Icon from '@/components/Icon/Icon.vue';
+import ToolTip from '@/components/ToolTip/ToolTip.vue';
 const _ref = ref<ButtonInstance | null>(null);
 onMounted(() => {
   if (_ref.value) {
@@ -15,11 +16,20 @@ const activeList = ref(['1', '2', '3']);
 </script>
 <template>
   <div>
-    <Icon
+    <div>
+      <ToolTip>
+        <Button>test</Button>
+        <template #content>
+          test content
+        </template>
+      </ToolTip>
+      <div>123</div>
+    </div>
+    <!-- <Icon
       icon="user-secret"
       size="10x"
       :type="'warning'"
-    />
+    /> -->
     <div>
       <Button
         type="primary"
