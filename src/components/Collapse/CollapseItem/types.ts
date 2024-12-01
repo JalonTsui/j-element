@@ -1,5 +1,5 @@
 export interface ItemType {
-    name:string;
-    title?:string;
-    disable?:boolean;
+  name: string;
+  title?: string;
+  disable?: boolean;
 }
