@@ -7,7 +7,7 @@ import type { Ref } from 'vue';
  * @param cb 触发回调
  * @returns 处理回调的函数
  */
-export function useOutting(containerNode: Ref<HTMLElement | null>,
+export function useClickOutside(containerNode: Ref<HTMLElement | null>,
   cb: () => void) {
   function handler(targetNode: HTMLElement) {
     if (containerNode.value && targetNode) {

@@ -6,8 +6,8 @@
  */
 import type { ToolTipEmits, ToolTipProps, ToolTipInstance } from './types';
 import { flip, shift, offset } from '@floating-ui/vue';
-import { computed, ref } from 'vue';
-import { useOutting } from '@/hooks/useOutting';
+import { computed, ref, watch } from 'vue';
+import { useClickOutside } from '@/hooks/useClickOutside';
 import { useFloating } from '@/hooks/useFloating';
 import { debounce } from 'lodash-es';
 defineOptions({
@@ -16,6 +16,10 @@ defineOptions({
 
 const props = withDefaults(defineProps<ToolTipProps>(), {
   trigger: 'click',
+  placement: 'bottom',
+  delay: 60,
+  transition: 'fade',
+  color: 'dark',
 });
 const emits = defineEmits<ToolTipEmits>();
 
@@ -26,13 +30,27 @@ const tooltipContainerRef = ref<null | HTMLElement>(null);
 
 const { options, isShow } = useFloating(triggerRef, popperRef, {
   arrowNode: arrowRef,
-  placement: 'right',
+  placement: props.placement,
   middleware: [flip(), shift({ padding: 0 }), offset(8)],
 });
 
-useOutting(tooltipContainerRef, () => debounceTogglePopper(false));
+watch(() => props.placement, (v) => {
+  options.placement = v;
+});
+
+const debounceTogglePopper = debounce(togglePopper, props.delay);
+
+useClickOutside(tooltipContainerRef, () => {
+  if (props.manual) {
+    return;
+  }
+  debounceTogglePopper(false);
+});
 
 const triggerZoneEvents = computed(() => {
+  if (props.manual) {
+    return {};
+  }
   if (props.trigger === 'click') {
     return {
       click: () => {
@@ -46,6 +64,9 @@ const triggerZoneEvents = computed(() => {
 });
 
 const containerZoneEvents = computed(() => {
+  if (props.manual) {
+    return {};
+  }
   if (props.trigger === 'click') {
     return {};
   }
@@ -59,16 +80,14 @@ const containerZoneEvents = computed(() => {
   }
 });
 
-const debounceTogglePopper = debounce(togglePopper, 60);
-
 function togglePopper(value: boolean) {
   isShow.value = value;
   emits('visible-change', value);
 }
 
 defineExpose<ToolTipInstance>({
-  show() {},
-  hide() {},
+  show: () => debounceTogglePopper(true),
+  hide: () => debounceTogglePopper(false),
 });
 </script>
 <template>
@@ -84,19 +103,25 @@ defineExpose<ToolTipInstance>({
     >
       <slot />
     </div>
-    <div
-      v-show="isShow"
-      ref="popperRef"
-      class="jt-tooltip__popper"
-    >
-      <slot name="content">
-        {{ props.content }}
-      </slot>
+    <Transition :name="props.transition">
       <div
-        ref="arrowRef"
-        class="jt-tooltip__arrow"
-      />
-    </div>
+        v-show="isShow"
+        ref="popperRef"
+        :data-popper-placement="props.placement"
+        class="jt-tooltip__popper"
+        :class="{
+          [`jt-tooltip__popper__dark`]: props.color === 'dark'
+        }"
+      >
+        <slot name="content">
+          {{ props.content }}
+        </slot>
+        <div
+          ref="arrowRef"
+          class="jt-tooltip__arrow"
+        />
+      </div>
+    </Transition>
   </div>
 </template>
 <style lang="scss"></style>
