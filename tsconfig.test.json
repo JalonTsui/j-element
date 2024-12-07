@@ -7,7 +7,6 @@
     "esModuleInterop": true, // 允许默认导出 export default
     "types": [
       "vitest/globals",
-      "./vitest-test"
     ],
     "jsx": "preserve",
     "jsxImportSource": "vue", // 给jsx语法下导入的vue组件对应的jsx类型，可以理解为一个vue->jsx的processor,报错ts2786
