@@ -1,0 +1,19 @@
+:root {
+    --component-preview-bg: var(--vp-code-block-bg);
+    --component-preview-soft: var(--vp-code-block-bg-light);
+}
+
+body {
+    /* 重置文字颜色，防止被项目的颜色覆盖 */
+    color: var(--vp-c-text-1);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--vp-c-text-1);
+}
