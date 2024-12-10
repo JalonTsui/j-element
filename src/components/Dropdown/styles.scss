@@ -1,0 +1,57 @@
+.jt-dropdown .jt-dropdown__menu {
+    --jt-dropdown-menuItem-hover-fill: var(--jt-color-primary-light-9);
+    --jt-dropdown-menuItem-hover-color: var(--jt-color-primary);
+    --jt-dropdown-menuItem-disabled-color: var(--jt-border-color-lighter);
+    --jt-dropdown-menuItem-divided-color: var(--jt-border-color-lighter);
+}
+
+.jt-dropdown {
+    display: inline-block;
+
+    // 后代选择器优先级高于vitepress中展示组件的样式级别
+    .jt-dropdown__menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .jt-tooltip {
+        --jt-popover-padding: 5px 0;
+    }
+}
+
+.jt-dropdown__menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .jt-dropdown__item {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        list-style: none;
+        line-height: 22px;
+        padding: 5px 16px;
+        margin: 0;
+        font-size: var(--jt-font-size-base);
+        color: var(--jt-text-color-regular);
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+            background-color: var(--jt-dropdown-menuItem-hover-fill);
+            color: var(--jt-dropdown-menuItem-hover-color);
+        }
+
+        &.is-disabled {
+            color: var(--jt-dropdown-menuItem-disabled-color);
+            cursor: not-allowed;
+            background-image: none;
+        }
+    }
+
+    .divided-placeholder {
+        margin: 6px 0;
+        border-top: 1px solid var(--jt-dropdown-menuItem-divided-color);
+    }
+}
