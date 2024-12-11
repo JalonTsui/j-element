@@ -4,7 +4,6 @@ import type { ButtonInstance } from '@/components/Button/types';
 import { onMounted, ref } from 'vue';
 import Collapse from '@/components/Collapse/Collapse.vue';
 import CollapseItem from '@/components/Collapse/CollapseItem/CollapseItem.vue';
-import Icon from '@/components/Icon/Icon.vue';
 import ToolTip from '@/components/ToolTip/ToolTip.vue';
 const _ref = ref<ButtonInstance | null>(null);
 onMounted(() => {
@@ -34,11 +33,11 @@ function btnFun1() {
       </ToolTip>
       <div>123</div>
     </div>
-    <!-- <Icon
+    <jt-icon
       icon="user-secret"
       size="10x"
       :type="'warning'"
-    /> -->
+    />
     <div>
       <Button
         type="primary"

@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import type { VNode } from 'vue';
 import type { ToolTipProps } from '@/components/ToolTip/types';
 
 export interface DropdownProps extends ToolTipProps {
