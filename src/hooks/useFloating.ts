@@ -11,7 +11,7 @@ export interface IUseFloatConfig extends Partial<ComputePositionConfig> {
   isShow?: boolean;
 }
 
-const STATIC_SIDE_MAP = {
+const STATIC_SIDE_MAP: Record<string, string> = {
   top: 'bottom',
   right: 'left',
   bottom: 'top',
@@ -20,7 +20,7 @@ const STATIC_SIDE_MAP = {
 
 export function useFloating(triggerRef: INodeType,
   popperRef: INodeType,
-  options?: IUseFloatConfig) {
+  options: IUseFloatConfig = {}) {
   const isShow = ref(typeof options.isShow === 'boolean' ? options.isShow : false); // 控制默认是否显示
   const floatingConfig = omit(options, ['arrowNode', 'isShow']); // 过滤出floating-ui原生的配置
   const refOptions = reactive<IUseFloatConfig>(floatingConfig);

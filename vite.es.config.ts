@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    dts({ tsconfigPath: './tsconfig.build.json' }),
+    dts({ tsconfigPath: './tsconfig.build.json', outDir: 'dist/types' }),
   ],
   resolve: {
     alias: {
@@ -18,18 +18,26 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: 'dist/es',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'JtElement',
       fileName: 'jt-element',
+      formats: ['es'],
     },
     rollupOptions: {
-      external: ['vue'],
+      external: [
+        'vue',
+        '@fortawesome/fontawesome-svg-core',
+        '@fortawesome/free-solid-svg-icons',
+        '@floating-ui/vue',
+        'axios',
+        '@fortawesome/free-regular-svg-icons',
+        '@fortawesome/free-solid-svg-icons',
+        '@fortawesome/vue-fontawesome',
+      ],
       output: {
         exports: 'named', // 即有具名导出，也有默认导出
-        globals: { // 给umd格式的vue名字
-          vue: 'Vue',
-        },
         assetFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'style.css') {
             return 'index.css';

@@ -1,0 +1,25 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "include": [
+        "src/index.ts",
+        "src/components/**/*",
+        "src/hooks/**/*",
+        "src/utils/**/*",
+    ],
+    "exclude": [
+        "src/**/*.test.ts(x)"
+    ],
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "composite": true,
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "jsx": "preserve",
+        "jsxImportSource": "vue",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ],
+        }
+    }
+}
