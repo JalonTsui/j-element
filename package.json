@@ -1,8 +1,19 @@
 {
-  "name": "jt-element",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@jalontsui/jt-element",
+  "version": "1.0.0",
+  "description": "Vue3 components library",
   "type": "module",
+  "author": "jalontsui",
+  "license": "MIT",
+  "keywords": [
+    "component",
+    "UI",
+    "Vue3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JalonTsui/j-element"
+  },
   "files": [
     "dist"
   ],
@@ -32,7 +43,8 @@
     "lint": "eslint . --fix",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.1.5",
