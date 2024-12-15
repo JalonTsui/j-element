@@ -7,7 +7,7 @@
         "src/utils/**/*",
     ],
     "exclude": [
-        "src/**/*.test.ts(x)"
+        "src/**/*.test.*"
     ],
     "compilerOptions": {
         "esModuleInterop": true,
