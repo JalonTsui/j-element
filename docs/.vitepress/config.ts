@@ -47,6 +47,7 @@ export default defineConfig({
         items: [
           { text: 'Button', link: '/components/Button/Button' },
           { text: 'Dropdown', link: '/components/Dropdown/Dropdown' },
+          { text: 'Message', link: '/components/Message/Message' },
         ],
       },
     ],
